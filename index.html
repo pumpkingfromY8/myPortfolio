@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PUMPKINGfromY8</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Pumpking's Code Garden</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a id="home">HOME</a></li>
+                    <li><a id="about">ABOUT</a></li>
+                    <li><a href="#">SERVICES</a></li>
+                    <li><a href="garden.html">GARDEN</a></li>
+                    <li><a href="#">FARMER</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+        <div class="content">
+            <!-- home -->
+            <h1 id="homeh1">Schoolworks  & <br><span>Source code</span> <br>Cultivating IT Excellence!</h1>
+            <p id="homecontent"class="par">"Welcome to Pumpkin's Code Harvest Hub, where creativity meets code. Explore a bountiful </br>collection of source code, IT projects, and schoolworks from the world of Information Technology.</br> Join us in cultivating knowledge and sharing IT brilliance. Let's grow together!"</p>
+
+            <!-- about -->
+            <h1 style="display: none;"id="abouth1">About<br><span>Pumpkin's</span> <br>Garden</h1>
+            <p style="display: none;"id="aboutcontent"class="par">"At Pumpkin's Code Garden, we've created a vibrant digital ecosystem where farmers of</br> Information Technology gather to sow, nurture, and share their digital seeds of knowledge."</p>
+
+             <button class="cn"><a href="#">Explore</a></button>
+
+                <div class="form" id="form" style="display: none;">
+                    <h2>Login Here</h2>
+                    <input type="email" name="email" id="username" placeholder="Enter Email Here">
+                    <input type="password" name="" id="password" placeholder="Enter Password Here">
+                    <button onclick="authenticateUser()" class="btnn"><a href="#">Login</a></button>
+
+                    <p class="link">Don't have an account<br>
+                    <a href="#">Sign up </a> here</a></p>
+                    <p class="liw">Log in with</p>
+
+                    <div class="icons">
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                    </div>
+
+                </div>
+                    </div>
+                </div>
+            </p>
+
+            
+                
+        </div>
+    </div>
+    <script>
+                    const aboutButton = document.getElementById("about");
+                        const descriptionButton = document.getElementById("home");
+                        const abouth1 = document.getElementById("abouth1");
+                        const aboutSection = document.getElementById("aboutcontent");
+                        const descriptionh1 = document.getElementById("homeh1");
+                        const descriptionSection = document.getElementById("homecontent");
+
+                        aboutButton.addEventListener("click", function() {
+                            abouth1.style.display = "block";
+                            aboutSection.style.display = "block";
+                            descriptionh1.style.display = "none";
+                            descriptionSection.style.display = "none";
+                    
+                        });
+
+                        descriptionButton.addEventListener("click", function() {
+                            abouth1.style.display = "none";
+                            aboutSection.style.display = "none";
+                            descriptionh1.style.display = "block";
+                            descriptionSection.style.display = "block";
+                        });
+    </script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <script>
+        function authenticateUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Load account data from account.json
+            fetch('account.json')
+                .then(response => response.json())
+                .then(accountData => {
+                    // Check if the entered username and password match any account
+                    const isValidUser = accountData.some(account => account.username === username && account.password === password);
+
+                    if (isValidUser) {
+                        alert('Login successful!');
+
+                        // Store user information in localStorage
+                        const userData = { username, password };
+                        localStorage.setItem('user', JSON.stringify(userData));
+
+                        // Redirect to the dashboard or another page
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Invalid username or password. Please try again.');
+                    }
+                })
+                .catch(error => console.error('Error fetching account data:', error));
+        }
+    </script>
+  
+  
+  
+  
+  
+  <script>
+        const loginform = document.getElementById("form");
+                        // Retrieve user information from localStorage
+                const userData = JSON.parse(localStorage.getItem('user'));
+
+                if (userData) {
+                    const username = userData.username;
+                    // Use the username or other user information as needed
+                } else {
+                    loginform.style.display = "block";
+                    // User is not logged in, handle accordingly
+                    // alert('User is not logged in. Redirect to login page or take appropriate action.');
+                }
+    </script>
+</body>
+</html>

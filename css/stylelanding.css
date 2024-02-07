@@ -1,0 +1,39 @@
+
+
+#myModelViewer{
+    background-color: red;
+}
+.content  img{
+    margin-top: 3rem;
+ }
+.content .textcontact {
+   float: right;
+   margin-top: 4%;
+
+}
+.content .textcontact h1 {
+    color: #ff7200;;
+    font-size: 60px;
+    text-shadow: 5px 6px 18px #24242496;
+}
+.content .textcontact span {
+    width: 4px;
+    height: 20px;
+    background: #fd4a47;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 5%;
+    left: -15%;
+
+}
+.content .textcontact p {
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-left: 22px;
+
+}
+abbr[title] {
+    text-decoration: none;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PUMPKINGfromY8</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css\stylelanding.css">
+    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+     <script type="module" src="3d/model-viewer.min.js"></script>
+
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Pumpking's Code Garden</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a id="home">HOME</a></li>
+                    <li><a id="about">ABOUT</a></li>
+                    <li><a href="#">SERVICES</a></li>
+                    <li><a href="garden.html">GARDEN</a></li>
+                    <li><a href="#">FARMER</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+        <div class="content" id="content">
+           
+                            <!-- Use it like any other HTML element -->
+                <model-viewer style="position: absolute;  margin: -1rem 0rem 0rem 9.5rem;width: 220px; height: 220px;"
+                    alt="mycar"
+                    id="myModelViewer"
+                    src="3d/pumpkin_.glb"
+                    ar
+                    environment-image
+                    shadow-intensity="1"
+                    camera-controls
+                    touch-action="pan-y"
+                    camera-Orbit = "0deg 0deg "
+                ></model-viewer>
+           
+
+
+                <img src="img/kimkim.png" style=" margin: 3rem 0rem 0rem 8rem;" alt="">
+                <div class="textcontact">
+                    
+                    <h1>Erwin Kim Carmelotes</h1>
+                    <span></span>
+                    <p>I am a fourth year <abbr title="Bachelor of Science of Information Technology"> BSIT</abbr> student of <abbr title="Agusan del Sur State College of Agriculture and Technology"> ASSCAT,</abbr><br>A creative Future Web Developer and I make things work</p>
+                    <!-- <p>I am a creative Designer and I make things work <br> Turning your dreams into reality</p> -->
+                   
+                  
+                    </div>
+                   
+           
+
+
+
+        </div>
+    </div>
+    <script>
+                    const aboutButton = document.getElementById("about");
+                        const descriptionButton = document.getElementById("home");
+                        const abouth1 = document.getElementById("abouth1");
+                        const aboutSection = document.getElementById("aboutcontent");
+                        const descriptionh1 = document.getElementById("homeh1");
+                        const descriptionSection = document.getElementById("homecontent");
+
+                        aboutButton.addEventListener("click", function() {
+                            abouth1.style.display = "block";
+                            aboutSection.style.display = "block";
+                            descriptionh1.style.display = "none";
+                            descriptionSection.style.display = "none";
+                    
+                        });
+
+                        descriptionButton.addEventListener("click", function() {
+                            abouth1.style.display = "none";
+                            aboutSection.style.display = "none";
+                            descriptionh1.style.display = "block";
+                            descriptionSection.style.display = "block";
+                        });
+    </script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <script>
+        function authenticateUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Load account data from account.json
+            fetch('account.json')
+                .then(response => response.json())
+                .then(accountData => {
+                    // Check if the entered username and password match any account
+                    const isValidUser = accountData.some(account => account.username === username && account.password === password);
+
+                    if (isValidUser) {
+                        alert('Login successful!');
+
+                        // Store user information in localStorage
+                        const userData = { username, password };
+                        localStorage.setItem('user', JSON.stringify(userData));
+
+                        // Redirect to the dashboard or another page
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Invalid username or password. Please try again.');
+                    }
+                })
+                .catch(error => console.error('Error fetching account data:', error));
+        }
+    </script>
+  
+  
+  
+  
+  
+  <script>
+        const loginform = document.getElementById("form");
+                        // Retrieve user information from localStorage
+                const userData = JSON.parse(localStorage.getItem('user'));
+
+                if (userData) {
+                    const username = userData.username;
+                    // Use the username or other user information as needed
+                } else {
+                    loginform.style.display = "block";
+                    // User is not logged in, handle accordingly
+                    // alert('User is not logged in. Redirect to login page or take appropriate action.');
+                }
+    </script>
+
+    <script src="3d/mouse_tracer_orbit.js"></script>
+</body>
+</html>
